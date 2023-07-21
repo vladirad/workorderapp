@@ -625,58 +625,9 @@ function mod_jwt_auth_token_before_dispatch($data, $user) {
      return $data;
 }
 
-/*add_action('acf/save_post', 'my_acf_save_post', 5);
-function my_acf_save_post( $post_id ) {
-
-    $post = get_post($post_id);
-    
-    if(!$post->post_title || !$post->post_content ) {
-            
-      if($post->post_title) {
-        $naslov = $post->post_title;
-      } else {
-        $naslov = $_POST['acf']['field_619f695f095a8'] . ' ' . $_POST['acf']['field_619f69e2095a9'] . ' - ' . $_POST['acf']['field_619f6a57e89ef'];
-      }
-
-      if($post->post_content) {
-        $mycontent = $post->post_content;
-      } else {
-
-        $acf = $_POST['acf'];
-
-        unset($acf['field_619f6a13095ab']);
-        unset($acf['field_61c2fa10e1492']);
-        unset($acf['field_61c2fa10e14cc']);
-        unset($acf['field_61c2fa10e1505']);
-
-        $mycontent = implode(" | ", $acf);
-
-        $drzave = get_the_terms( $post, 'drzava' );
-
-        if($drzave) {
-          foreach ($drzave as $drzava) {
-            $drz = $drzava->name;
-          }
-
-          $mycontent = $mycontent . $drz; 
-        }
-              
-      }
-
-      $my_post = array(
-          'ID'           =>  $post_id,
-          'post_title'   =>  $naslov,
-          'post_content'   =>  $mycontent
-      );
-
-      wp_update_post( $my_post );
-    }
-
-}*/
-
 function pn_send_push_notification($user_id, $msgtitle, $msgbody, $nalog_id)
 {
-    $server_key = 'AAAARLsTOg8:APA91bFr26T-6glOBypapTzGELDUm1ztEbssB9x9-lo8ykxfznz39JiElGtnTK7RBthwP3wYi75qvnP88wD8_G7UquoKubiqRBFSpNAjy8KVo-L4D0p8Fk5JGTZrIp7SN6amlcLbuHVP';
+    $server_key = get_field('firebase_api_key', 'option');
     $url = 'https://fcm.googleapis.com/fcm/send';
     $fields['to'] = '/topics/' . $user_id;
     $fields['notification'] = array(
