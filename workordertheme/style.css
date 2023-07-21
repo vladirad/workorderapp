@@ -1,0 +1,133 @@
+/*
+Theme Name: Proservis Tema
+Theme URL: http://proservis.devstetic.dev/wp
+Description: Proservis Tema
+Theme Author: Proservis
+Author URL: http://pepa.devstetic.dev/wp
+Template: generatepress
+Version: 1.0.0 
+Text Domain: generatepress
+*/
+
+body {
+	background-color: #fff;
+}
+
+#page-sub-header {
+	text-align: center;
+}
+
+a.site-title {
+	font-size: 24px;
+}
+
+#page-sub-header img {
+	width: 300px;
+}
+
+#page-sub-header h1 {
+	color: #00ade5;
+}
+
+a {
+	color: #00ade5;
+}
+
+a:hover {
+	color: #555;
+}
+
+#page-sub-header a svg {
+	width: 40px;
+
+}
+
+#page-sub-header a {
+	color: #00ade5;
+}
+
+.acf-fields > .acf-field {
+	border-top: none!important;
+}
+
+.acf-field[data-width] + .acf-field[data-width] {
+	border-left: none!important;
+}
+
+.acf-field-message label {
+	font-size: 20px;
+	color: #00ade5;
+}
+
+.acf-field input[type=text], 
+.acf-field input[type=password], 
+.acf-field input[type=date], 
+.acf-field input[type=datetime], 
+.acf-field input[type=datetime-local], 
+.acf-field input[type=email], 
+.acf-field input[type=month], 
+.acf-field input[type=number], 
+.acf-field input[type=search], 
+.acf-field input[type=tel], 
+.acf-field input[type=time], 
+.acf-field input[type=url], 
+.acf-field input[type=week], 
+.acf-field textarea, 
+.acf-field select {
+    padding: 8px 16px!important;
+    font-size: 15px!important;
+    background-color: #fff;
+}
+
+.acf-input .iti--allow-dropdown input {
+	padding-left: 50px!important;
+}
+
+.acf-form-submit {
+	padding: 0 12px;
+	text-align: right;
+}
+
+.acf-form-submit input {
+	background-color: #00ade5;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 15px 30px;
+}
+
+#message.updated {
+	display: block;
+	margin: 12px;
+	padding: 10px 15px;
+	background: #00ade5;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+#message.updated p {
+	margin-bottom: 0;
+}
+
+.site-content {
+	display: block;
+}
+
+.footermenu {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.footermenu a {
+	margin-right: 20px;
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.site-content .content-area {
+    width: 100%;
+}
