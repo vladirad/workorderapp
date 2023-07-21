@@ -130,7 +130,6 @@ add_action('rest_api_init', function () {
 
 function add_rezervni($request) {
   $rezervni = $_POST['rezervni'];
- //$timenow = new DateTime();
   $time = date('Ymd H:i:s');
   $id = $request->get_param( 'id' );
   
@@ -184,7 +183,6 @@ function get_rezervni($request) {
 
 function add_napomena($request) {
   $napomena = $_POST['napomena'];
-  //$timenow = new DateTime();
   $time = date('Ymd H:i:s');
   $id = $request->get_param( 'id' );
   
@@ -391,8 +389,6 @@ function get_user_notifications($request) {
   foreach ($notifikacije as $notifikacija) {
     $notifikacija->meta = get_fields($notifikacija->ID);
   }
-
-  //$response = json_encode($nalozi);
 
   return rest_ensure_response( $notifikacije );
 }
@@ -1726,16 +1722,6 @@ function validate_phone_num($phone) {
 function send_sms_notification( $post_id ) {
     $notifsent = get_post_meta( $post_id, 'notifsent', true );
     if(!$notifsent) {
-      /*$trenutni_broj = get_field('field_61e53d42d8163', 'option');
-      $godina = get_field('field_61e53d61d8164', 'option');
-      $novi_broj = intval($trenutni_broj);
-      $rbr = strval($novi_broj) . '-' . $godina;
-
-      $user_phone = $_POST['acf']['field_619f6a13095ab'];
-      
-      if(!$user_phone) {
-        $user_phone = $_POST['acf']['field_61dec7953c24f'];
-      }*/
 
       $rbr = get_field('redni_broj', $post_id);
       $user_phone = get_field('broj_telefona', $post_id);
@@ -2086,11 +2072,8 @@ function check_azuriran_nalog_fun() {
 
             if($serviser) {
               $servisermail = $serviser->user_email;
-              
-              //$servisermailtext = 'Radni nalog '. $post->post_title .' nije ažuriran duže od 3 dana na  aplikaciji.<br><br>Lijep pozdrav,<br><br>';
               $servisermailtext = 'Radni nalog ' . $nalog->post_title . ' nije riješen duži vremenski period. Molimo da ga riješite u što kraćem roku!';
               update_field('serviser', $serviser_id, $notifikacija);
-              //$msgbody = "Radni nalog nije ažuiran duže od 3 dana - " . $nalog->post_title . ".";
               $send = pn_send_push_notification($serviser_id, "Proservis", $servisermailtext, $post->ID);
               wp_mail( $servisermail, $email_subject, $servisermailtext, $headers);
             }
